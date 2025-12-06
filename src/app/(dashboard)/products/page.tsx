@@ -3,6 +3,7 @@ import MetricsSection from "@/app/components/metricsSection";
 import SearchBar from "@/app/components/searchBar";
 import CustomTable from "@/app/components/table";
 import { productsColums } from "@/app/components/table/columns";
+import { useProducts } from "@/app/context/productContext";
 import { Product, User } from "@/services/utils/interfaces";
 import { images } from "@/theme";
 import { useQuery } from "@tanstack/react-query";
@@ -12,28 +13,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const Products = () => {
+   const { products, isLoading } = useProducts();
   const [searchParam, setSearchParams] = useState("");
   const [filteredData, setFilteredData] = useState<Product[]>([]);
-
-  const { data: products, isLoading: isLoadingUsers } = useQuery<Product[]>({
-    queryKey: ["products"],
-    queryFn: async () => {
-      try {
-        const response = await axios(
-          "https://dummyjson.com/products"
-        );
-        
-        const modifyProduct = response.data?.products.map((product: Product) => ({
-          ...product,
-          status: Math.random() < 0.4 ? "In Stock" : "Out of Stock",
-        }));
-      
-        return modifyProduct ?? [];
-      } catch (error) {
-        return [];
-      }
-    },
-  });
 
   const OnchangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -55,7 +37,7 @@ const Products = () => {
 
   return (
     <div>
-      {isLoadingUsers ? (
+      {isLoading ? (
         <Skeleton />
       ) : (
         <div>
@@ -69,7 +51,7 @@ const Products = () => {
             thirdCardValue="189"
           />
 
-          <div className="bg-[#FFFFFF]! rounded-[30px] shadowX p-[30px] mt-10 ">
+          <div className="bg-[#FFFFFF]! rounded-[30px] shadowX p-[30px] mt-10  ">
             <div className="flex md:flex-row flex-col justify-start items-start md:justify-between md:items-center mb-6">
               <div>
                 <p className="text-[#000000] font-semibold  text-[22px]  ">

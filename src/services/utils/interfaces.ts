@@ -79,3 +79,9 @@ export interface Product {
   thumbnail: string;
   images: string[];
 }
+
+
+export interface ProductContextType {
+  products: Product[];
+  isLoading: boolean;
+}

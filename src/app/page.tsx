@@ -61,6 +61,7 @@ export default function Home() {
             <Input.Password
               className={`text-[#181D27]! font-normal! text-[16px]! outline-none! shadow-none! placeholder:text-[#A0A3B1]! placeholder:font-normal! h-[41px]! py-2.5! px-3.5! border border-[#E9EAEB] rounded-lg overflow-clip w-full!`}
               disabled={isloading}
+              placeholder="password"
             />
           </Form.Item>
 

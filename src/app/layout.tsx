@@ -5,7 +5,7 @@ import { ConfigProvider } from "antd";
 import { antdTheme } from "@/theme";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Poppins } from "next/font/google";
-
+import { ProductProvider } from "@/app/context/productContext";
 export const metadata: Metadata = {
   title: "CRM Dashboard",
   description: "Dave Assessment",
@@ -24,10 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${poppins.className} antialiased`} suppressHydrationWarning>
+      <body
+        className={` ${poppins.className} antialiased`}
+        suppressHydrationWarning
+      >
         <ReactQueryProvider>
           <ConfigProvider theme={antdTheme}>
-            <AntdRegistry>{children}</AntdRegistry>
+            <AntdRegistry>
+              <ProductProvider>{children}</ProductProvider>
+            </AntdRegistry>
           </ConfigProvider>
         </ReactQueryProvider>
       </body>
