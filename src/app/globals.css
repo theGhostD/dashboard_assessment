@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+
+
+/* @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+.ant-input:-webkit-autofill,
+.ant-input:-webkit-autofill:hover,
+.ant-input:-webkit-autofill:focus,
+.ant-input:-webkit-autofill:active,
+.ant-input-password:-webkit-autofill,
+.ant-input-password:-webkit-autofill:hover,
+.ant-input-password:-webkit-autofill:focus,
+.ant-input-password:-webkit-autofill:active {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: #3a3a45 !important;
+  background-color: transparent !important;
+  transition: background-color 5000s ease-in-out 0s !important;
+  box-shadow: none !important;
+}
+
+.ant-form-item {
+  margin-bottom: 0px !important;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInMoveUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInMoveUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ant-drawer .ant-drawer-body {
+  padding: 0px !important;
+}
+
+.shadowX{
+  box-shadow:0px 10px 60px 0px #E2ECF980  !important;
+}
+
+.ant-table-cell {
+  height: 69px !important;
+}
